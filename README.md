@@ -56,6 +56,15 @@ Navigateur ──HTTP──> main.go (routes) ──> handlers/ ──> api/ ─
 
 Les décisions d'architecture importantes sont tracées dans [`docs/adr/`](docs/adr/).
 
+## Limitations connues
+
+- **Lancement depuis la racine uniquement** : les templates et fichiers statiques sont chargés
+  via des chemins relatifs (`./static`, `templates/...`). Un binaire compilé puis exécuté depuis
+  un autre dossier échoue (voir issue #6).
+- **Dépendance à l'API externe** : toutes les données viennent de l'API Groupie Trackers, en
+  temps réel, sans cache local. Si cette API est indisponible ou lente, l'application renvoie
+  une erreur 500 plutôt qu'un contenu dégradé.
+
 ## Contribution
 
 Ce dépôt suit un workflow standard : jamais de commit direct sur `main`, tout passe par une
