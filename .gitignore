@@ -18,3 +18,6 @@ groupie_track
 # Fichiers système
 .DS_Store
 Thumbs.db
+
+# Journal de bord personnel du TP (local uniquement, non versionné)
+JOURNAL-TP.md
